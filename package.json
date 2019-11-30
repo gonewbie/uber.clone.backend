@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.17",
+    "@types/mongoose": "^5.5.32",
     "@types/node": "^10.12.18",
     "serverless-webpack": "^5.2.0",
     "ts-loader": "^5.3.3",

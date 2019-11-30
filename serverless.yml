@@ -15,13 +15,12 @@ provider:
   stage: ${opt:stage, 'dev'}
   environment:
     mongoDBHost: '${file(./config/${self:provider.stage}.json):mongoDB.host}'
-    mongoDBPort: '${file(./config/${self:provider.stage}.json):mongoDB.port}'
   region: ap-northeast-2
 
 functions:
   graphql:
-    handler: handler.graphqlHandler
+    handler: api/graphql.graphqlHandler
     events:
       - http:
           method: post
-          path: graphql
+          path: api/graphql
