@@ -1,95 +1,52 @@
-import { Connection, Model } from 'mongoose';
-import dayjs from 'dayjs';
-import NoteModel, { INote } from '../../database/models/note';
-import { ApolloError } from 'apollo-server-lambda';
+import { Connection } from 'mongoose';
+import { INote } from '../../database/models/note';
+import { NoteService } from '../../service/note';
 
 export default {
   Query: {
     /**
      * Note를 전부 조회한다.
-     * @param {object} parent ?
+     * @param {object} parent 부모 resolver로부터 
      * @param {object} args query나 mutation에서 넘어온 인자들
      * @param {object} context api 설정 시 생성되는 context 객체. 현재는 db connection정보.
      * @return {Promise<INote[]>} Note 항목 전체 반환
      */
     getAllNotes: async (
-      parent,
-      args,
+      _,
+      _1,
       { dbConn }: { dbConn: Connection }
     ): Promise<INote[]> => {
-      const Note: Model<INote> = NoteModel(dbConn);
-
-      let list: INote[];
-
-      try {
-        list = await Note.find().exec();
-      } catch (error) {
-        console.error(`> getAllNotes error: ${error}`);
-
-        throw new ApolloError('Error retrieving all notes');
-      }
-
-      return list;
+      const service = new NoteService();
+      return service.getAllNotes(dbConn);
     },
 
     getNote: async (
-      parent,
+      _,
       { _id }: { _id: INote['_id'] },
       { dbConn }: { dbConn: Connection }
     ): Promise<INote> => {
-      const Note: Model<INote> = NoteModel(dbConn);
-
-      try {
-        const note = await Note.findById(_id).exec();
-
-        return note;
-      } catch (error) {
-        console.error(`> getNote error: ${error}`);
-
-        throw new ApolloError('Error retrieving specific note');
-      }
+      const service = new NoteService();
+      return service.getNote(dbConn, _id);
     }
   },
 
   Mutation: {
     saveNote: async (
-      parent,
+      _,
       { title, content }: { title: INote['title'];  content: INote['content'] },
       { dbConn }: { dbConn: Connection }
     ): Promise<INote> => {
-      const Note: Model<INote> = NoteModel(dbConn);
-
-      try {
-        const note = await Note.create({
-          title,
-          content,
-          date: dayjs().format('YYYY-MM-DDTHH:mm:ss.SSS[Z]')
-        });
-
-        return note;
-      } catch (error) {
-        console.error(`> saveNote error: ${error}`);
-
-        throw new ApolloError('Error creating note');
-      }
+      const service = new NoteService();
+      return service.createNote(dbConn, title, content);
     },
 
     deleteNote: async (
-      parent,
+      _,
       { _id }: { _id: INote['id'] },
       { dbConn }: { dbConn: Connection }
     ): Promise<INote> => {
-      const Note: Model<INote> = NoteModel(dbConn);
-
-      try {
-        const note = await Note.findByIdAndDelete(_id).exec();
-
-        return note;
-      } catch (error) {
-        console.error(`> deleteNote error: ${error}`);
-
-        throw new ApolloError('Error deleting note');
-      }
+      const service = new NoteService();
+      return service.deleteNote(dbConn, _id);
     }
   }
 };
