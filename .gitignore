@@ -1,1 +1,16 @@
-/node_modules
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# Webpack directories
+.webpack
+
+#yarn
+yarn.lock
+
+#configs
+config/
+.env
