@@ -1,0 +1,17 @@
+{
+  "name": "giantstar-server",
+  "version": "1.0.0",
+  "description": "giantstar backend server",
+  "main": "index.js",
+  "repository": "https://github.com/gonewbie/giantstar.backend.git",
+  "author": "gonewbie <gounewbie@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^12.12.14",
+    "nodemon": "^2.0.1",
+    "ts-node": "^8.5.4",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.7.3"
+  }
+}
