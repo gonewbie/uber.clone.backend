@@ -1,8 +1,9 @@
 import { IsEmail } from 'class-validator';
 import {
-  BaseEntity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn
+  BaseEntity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, Entity
 } from 'typeorm';
 
+@Entity()
 class User extends BaseEntity {
   @PrimaryGeneratedColumn() id: number;
 
@@ -57,7 +58,7 @@ class User extends BaseEntity {
   }
 
   @CreateDateColumn() createAt: string;
-  
+
   @UpdateDateColumn() updateAt: string;
 }
 
