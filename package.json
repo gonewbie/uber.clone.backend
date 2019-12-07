@@ -13,6 +13,7 @@
     "types": "graphql-to-typescript ./src/schema.graphql ./src/types/graph.d.ts"
   },
   "dependencies": {
+    "class-validator": "^0.11.0",
     "cors": "^2.8.5",
     "dayjs": "^1.8.17",
     "dotenv": "^8.2.0",
