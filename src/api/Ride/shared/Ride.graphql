@@ -8,6 +8,8 @@ type Ride {
   dropOffLat: Float!
   dropOffLng: Float!
   price: Float!
+  driver: User
+  passanger: User
   distance: String!
   duration: String!
   createAt: String!

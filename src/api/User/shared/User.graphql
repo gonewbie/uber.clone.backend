@@ -12,6 +12,9 @@ type User {
   createAt: String!
   updateAt: String
   fullname: String
+  verifications: [Verification]
+  ridesAsPassenger: [Ride]
+  ridesAsDriver: [Ride]
   isDriving: Boolean!
   isRiding: Boolean!
   isTaken: Boolean!
@@ -20,7 +23,6 @@ type User {
   lastOrientation: Float
   chat: Chat
   messages: [Message]
-  isDriving: Boolean!
 }
 
 type Query {

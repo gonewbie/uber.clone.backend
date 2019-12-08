@@ -1,0 +1,3 @@
+Error: multiple output @typescript-eslint/member-delimiter-style ESLint rule options were generated, but tslint-to-eslint-config doesn't have "merger" logic to deal with this.
+Please file an issue at https://github.com/typescript-eslint/tslint-to-eslint-config/issues/new?template=missing_merger.md 🙏jsdoc-format does not yet have an ESLint equivalent.
+no-reference-import does not yet have an ESLint equivalent.
