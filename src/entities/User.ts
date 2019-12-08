@@ -48,9 +48,6 @@ class User extends BaseEntity {
   @OneToMany(type => Message, message => message.user)
   messages: Message[];
 
-  @OneToMany(type => Verification, verification => verification.user)
-  verifications: Verification[];
-
   @OneToMany(type => Ride, ride => ride.passenger)
   ridesAsPassenger: Ride[];
 
@@ -89,6 +86,10 @@ class User extends BaseEntity {
     return bcrypt.compare(password, this.password);
   }
 
+  private hashPassword(password: string): Promise<string> {
+    return bcrypt.hash(password, BCRYPT_ROUNDS);
+  }
+
   @BeforeInsert()
   @BeforeUpdate()
   async savePassword(): Promise<void> {
@@ -96,10 +97,6 @@ class User extends BaseEntity {
       const hashedPassword = await this.hashPassword(this.password);
       this.password = hashedPassword;
     }
-  }
-
-  private hashPassword(password: string): Promise<string> {
-    return bcrypt.hash(password, BCRYPT_ROUNDS);
   }
 }
 
