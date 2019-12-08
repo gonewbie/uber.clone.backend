@@ -61,7 +61,6 @@ class User extends BaseEntity {
   }
 
   @CreateDateColumn() createAt: string;
-
   @UpdateDateColumn() updateAt: string;
 
   public comparePassword(password: string): Promise<boolean> {
