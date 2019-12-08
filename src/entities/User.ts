@@ -5,7 +5,6 @@ import {
 } from 'typeorm';
 import Chat from './Chat';
 import Message from './Message';
-import Verification from './Verification';
 import Ride from './Ride';
 
 const BCRYPT_ROUNDS = 10;
