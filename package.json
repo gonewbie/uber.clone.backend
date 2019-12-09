@@ -8,6 +8,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "predev": "yarn run types",
     "dev": "cd src && nodemon --exec ts-node index.ts -e ts,graphql",
     "pretypes": "gql-merge --out-file ./src/schema.graphql ./src/api/**/*.graphql",
     "types": "graphql-to-typescript ./src/schema.graphql ./src/types/graph.d.ts"
@@ -26,6 +27,7 @@
     "merge-graphql-schemas": "^1.7.3",
     "mongoose": "^5.7.7",
     "morgan": "^1.9.1",
+    "twilio": "^3.38.0",
     "typeorm": "^0.2.21"
   },
   "devDependencies": {
@@ -35,6 +37,7 @@
     "@types/helmet": "^0.0.45",
     "@types/morgan": "^1.7.37",
     "@types/node": "^12.12.14",
+    "@types/twilio": "^0.0.10",
     "babel-runtime": "^6.26.0",
     "gql-merge": "^0.0.6",
     "graphql-to-typescript": "^0.1.2",

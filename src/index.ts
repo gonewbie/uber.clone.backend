@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config({path: '../.env'});
+
 import { Options } from 'graphql-yoga';
 import app from './app';
 import { createConnection } from 'typeorm';
