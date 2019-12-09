@@ -10,7 +10,7 @@ import Verification from '../../../entities/Verification';
 
 const resovlers: Resolvers = {
   Mutation: {
-    ComPleteEmailVerification: privateResolver(async (
+    CompleteEmailVerification: privateResolver(async (
       _,
       args: CompleteEmailVerificationMutationArgs,
       { req }
