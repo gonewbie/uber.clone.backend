@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import { IsEmail } from 'class-validator';
 import {
-  BaseEntity, Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, BeforeInsert, BeforeUpdate, ManyToOne, OneToMany
+  BaseEntity, BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn
 } from 'typeorm';
 import Chat from './Chat';
 import Message from './Message';
@@ -72,7 +72,7 @@ class User extends BaseEntity {
   lastOrientation: number;
 
   @Column({ type: 'text', nullable: true })
-  fbId: String;
+  fbId: string;
 
   get fullName() : string {
     return `${this.firstName} ${this.lastName}`

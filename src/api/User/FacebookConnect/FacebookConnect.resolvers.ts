@@ -1,6 +1,6 @@
+import User from '../../../entities/User';
 import { FacebookConnectMutationArgs, FacebookConnectResponse } from '../../../types/graph';
 import { Resolvers } from '../../../types/resolvers';
-import User from '../../../entities/User';
 import createJWT from '../../../utils/createJWT';
 
 const resolvers: Resolvers = {

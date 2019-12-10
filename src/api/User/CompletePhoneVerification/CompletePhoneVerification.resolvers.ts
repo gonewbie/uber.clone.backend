@@ -1,11 +1,11 @@
+import User from '../../../entities/User';
+import Verification from '../../../entities/Verification';
 import {
   CompletePhoneVerificationMutationArgs,
   CompletePhoneVerificationResponse,
 } from '../../../types/graph';
 import { Resolvers } from '../../../types/resolvers';
-import Verification from '../../../entities/Verification';
 import createJWT from '../../../utils/createJWT';
-import User from '../../../entities/User';
 
 const resolvers: Resolvers = {
   Mutation: {
