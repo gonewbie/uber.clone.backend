@@ -55,6 +55,7 @@ type GetMyPlacesResponse {
 type Query {
   GetMyPlaces: GetMyPlacesResponse!
   GetMyProfile: GetMyProfileResponse!
+  GetNearbyDrivers: GetNearbyDriversResponse!
   user: User
 }
 
@@ -100,6 +101,10 @@ type CompletePhoneVerificationResponse {
   token: String
 }
 
+type Subscription {
+  DriversSubscription: User
+}
+
 type EmailSignInResponse {
   ok: Boolean!
   error: String
@@ -124,6 +129,12 @@ type GetMyProfileResponse {
   user: User
 }
 
+type GetNearbyDriversResponse {
+  ok: Boolean!
+  error: String
+  drivers: [User]
+}
+
 type ReportMovementResponse {
   ok: Boolean!
   error: String
@@ -142,7 +153,7 @@ type User {
   profilePhoto: String
   createAt: String!
   updateAt: String
-  fullname: String
+  fullName: String
   chat: Chat
   messages: [Message]
   ridesAsPassenger: [Ride]
