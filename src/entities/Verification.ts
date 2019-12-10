@@ -1,11 +1,11 @@
 import {
-  Entity,
   BaseEntity,
-  PrimaryGeneratedColumn,
+  BeforeInsert,
   Column,
   CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
-  BeforeInsert,
 } from 'typeorm';
 import { verificationTypes } from '../types/types';
 

@@ -1,10 +1,11 @@
 import bcrypt from 'bcrypt';
 import { IsEmail } from 'class-validator';
 import {
-  BaseEntity, Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, BeforeInsert, BeforeUpdate, ManyToOne, OneToMany
+  BaseEntity, BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn
 } from 'typeorm';
 import Chat from './Chat';
 import Message from './Message';
+import Place from './Place';
 import Ride from './Ride';
 
 const BCRYPT_ROUNDS = 10;
@@ -53,6 +54,9 @@ class User extends BaseEntity {
   @OneToMany(type => Ride, ride => ride.driver)
   ridesAsDriver: Ride[];
 
+  @OneToMany(type => Place, place => place.user)
+  places: Place
+
   @Column({ type: 'boolean', default: false })
   isDriving: boolean;
 
@@ -72,7 +76,7 @@ class User extends BaseEntity {
   lastOrientation: number;
 
   @Column({ type: 'text', nullable: true })
-  fbId: String;
+  fbId: string;
 
   get fullName() : string {
     return `${this.firstName} ${this.lastName}`

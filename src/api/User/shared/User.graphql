@@ -11,11 +11,12 @@ type User {
   profilePhoto: String
   createAt: String!
   updateAt: String
-  fullname: String
+  fullName: String
   chat: Chat
   messages: [Message]
   ridesAsPassenger: [Ride]
   ridesAsDriver: [Ride]
+  places: [Place]
   isDriving: Boolean!
   isRiding: Boolean!
   isTaken: Boolean!
