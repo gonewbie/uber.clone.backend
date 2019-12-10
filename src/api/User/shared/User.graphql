@@ -16,6 +16,7 @@ type User {
   messages: [Message]
   ridesAsPassenger: [Ride]
   ridesAsDriver: [Ride]
+  places: [Place]
   isDriving: Boolean!
   isRiding: Boolean!
   isTaken: Boolean!
