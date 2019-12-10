@@ -12,7 +12,7 @@ const resolvers: Resolvers = {
       try {
         const place = await Place.findOne({ id: args.placeId });
         if (place) {
-          if (place.user.id === user.id) {
+          if (place.userId === user.id) {
             const notNull: any = cleanNullArgs(args);
             delete notNull.placeId;
             await Place.update({ id: args.placeId }, { ...notNull });
