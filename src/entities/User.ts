@@ -55,7 +55,7 @@ class User extends BaseEntity {
   ridesAsDriver: Ride[];
 
   @OneToMany(type => Place, place => place.user)
-  places: Place
+  places: [Place]
 
   @Column({ type: 'boolean', default: false })
   isDriving: boolean;

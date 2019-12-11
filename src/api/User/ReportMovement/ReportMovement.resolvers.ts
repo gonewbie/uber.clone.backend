@@ -13,7 +13,6 @@ const resolvers: Resolvers = {
       try {
         await User.update({ id: user.id }, { ...notNull });
         const updatedUser = { ...user, ...notNull };
-        console.log(updatedUser);
         pubSub.publish('driverUpdate', { DriversSubscription: updatedUser });
         return {
           ok: true,

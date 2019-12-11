@@ -25,7 +25,6 @@ const resolvers: Resolvers = {
           target: 'PHONE'
         }).save();
         await sendVerificationSMS(newVerification.payload, newVerification.key);
-        console.log(newVerification);
         return {
           ok: true,
           error: null
