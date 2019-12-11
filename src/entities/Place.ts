@@ -32,7 +32,7 @@ class Place extends BaseEntity {
   userId: number;
 
   @ManyToOne(type => User, user => user.places)
-  user: User
+  user: User;
 
   @CreateDateColumn() createAt: string;
   @UpdateDateColumn() updateAt: string;
