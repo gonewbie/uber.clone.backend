@@ -9,11 +9,12 @@ const resolvers: Resolvers = {
     RequestRide: privateResolver(async (
       _,
       args: RequestRideMutationArgs,
-      { req }
+      { req, pubSub }
     ): Promise<RequestRideResponse> => {
       const user: User = req.user;
       try {
         const ride = await Ride.create({ ...args, passenger: user }).save();
+        pubSub.publish('rideRequest', { NearbyRideSubscription: ride });
         return {
           ok: true,
           error: null,
