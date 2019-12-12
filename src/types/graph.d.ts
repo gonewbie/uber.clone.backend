@@ -3,7 +3,6 @@ export const typeDefs = ["type Chat {\n  id: Int!\n  messages: [Message]!\n  par
 
 export interface Query {
   GetMyPlaces: GetMyPlacesResponse;
-  GetNearbyRide: GetNearbyRideResponse;
   GetMyProfile: GetMyProfileResponse;
   GetNearbyDrivers: GetNearbyDriversResponse;
   user: User | null;
@@ -90,12 +89,6 @@ export interface Ride {
   duration: string;
   createAt: string;
   updateAt: string | null;
-}
-
-export interface GetNearbyRideResponse {
-  ok: boolean;
-  error: string | null;
-  ride: Ride | null;
 }
 
 export interface GetMyProfileResponse {
