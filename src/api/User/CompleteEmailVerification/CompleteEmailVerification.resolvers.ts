@@ -10,7 +10,8 @@ import privateResolver from '../../../utils/privateResolver';
 
 const resovlers: Resolvers = {
   Mutation: {
-    CompleteEmailVerification: privateResolver(async (
+    CompleteEmailVerification: privateResolver(
+      async (
       _,
       args: CompleteEmailVerificationMutationArgs,
       { req }

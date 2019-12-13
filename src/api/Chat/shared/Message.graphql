@@ -3,7 +3,6 @@ type Message {
   text: String!
   chat: Chat!
   user: User!
-  userId: Int!
-  createAt: String!
-  updateAt: String
+  createdAt: String!
+  updatedAt: String
 }
