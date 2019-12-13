@@ -1,13 +1,13 @@
 import User from '../../../entities/User';
 import { Resolvers } from '../../../types/resolvers';
-import cleanNullArgs from '../../../utils/cleanNullArgs';
+import cleanNullArg from '../../../utils/cleanNullArg';
 import privateResolver from '../../../utils/privateResolver';
 
 const resolvers: Resolvers = {
   Mutation: {
     UpdateMyProfile: privateResolver(async (_, args, { req }) => {
       const user: User = req.user;
-      const notNull: any = cleanNullArgs(args);
+      const notNull: any = cleanNullArg(args);
       if (notNull.hasOwnProperty('password')) {
         user.password = notNull['password'];
         user.save();

@@ -2,19 +2,24 @@ import Place from '../../../entities/Place';
 import User from '../../../entities/User';
 import { EditPlaceMutationArgs, EditPlaceResponse } from '../../../types/graph';
 import { Resolvers } from "../../../types/resolvers";
-import cleanNullArgs from '../../../utils/cleanNullArgs';
+import cleanNullArg from '../../../utils/cleanNullArg';
 import privateResolver from "../../../utils/privateResolver";
 
 const resolvers: Resolvers = {
   Mutation: {
-    EditPlace: privateResolver(async( _, args: EditPlaceMutationArgs, { req } ): Promise<EditPlaceResponse> => {
+    EditPlace: privateResolver(
+      async(
+        _,
+        args: EditPlaceMutationArgs,
+        { req }
+      ): Promise<EditPlaceResponse> => {
       const user: User = req.user;
       try {
         const place = await Place.findOne({ id: args.placeId });
         if (place) {
           if (place.userId === user.id) {
-            const notNull: any = cleanNullArgs(args);
-            delete notNull.placeId;
+            const notNull: any = cleanNullArg(args);
+            // delete notNull.placeId;
             await Place.update({ id: args.placeId }, { ...notNull });
             return {
               ok: true,

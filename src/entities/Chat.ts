@@ -14,13 +14,14 @@ class Chat extends BaseEntity {
   @PrimaryGeneratedColumn() id: number;
 
   @OneToMany(type => Message, message => message.chat)
-  messages: Message[]
+  messages: Message[];
 
   @OneToMany(type => User, user => user.chat)
-  participants: User[]
+  participants: User[];
 
-  @CreateDateColumn() createAt: string;
-  @UpdateDateColumn() updateAt: string;
+  @CreateDateColumn() createdAt: string;
+
+  @UpdateDateColumn() updatedAt: string;
 }
 
 export default Chat;

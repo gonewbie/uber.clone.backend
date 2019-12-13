@@ -1,7 +1,7 @@
 import User from '../../../entities/User';
 import { ReportMovementMutationArgs, ReportMovementResponse } from '../../../types/graph';
 import { Resolvers } from '../../../types/resolvers';
-import cleanNullArgs from '../../../utils/cleanNullArgs';
+import cleanNullArg from '../../../utils/cleanNullArg';
 import privateResolver from '../../../utils/privateResolver';
 
 
@@ -9,7 +9,7 @@ const resolvers: Resolvers = {
   Mutation: {
     ReportMovement: privateResolver(async (_, args: ReportMovementMutationArgs, { req, pubSub }): Promise<ReportMovementResponse> => {
       const user: User = req.user;
-      const notNull: any = cleanNullArgs(args);
+      const notNull: any = cleanNullArg(args);
       try {
         await User.update({ id: user.id }, { ...notNull });
         const updatedUser = { ...user, ...notNull };

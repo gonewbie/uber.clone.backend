@@ -5,8 +5,8 @@ type Place {
   lng: Float!
   address: String!
   isFav: Boolean!
-  userId: Int
+  userId: Int!
   user: User!
-  createAt: String!
-  updateAt: String
+  createdAt: String!
+  updatedAt: String
 }

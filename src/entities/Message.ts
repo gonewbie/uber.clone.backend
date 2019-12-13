@@ -14,20 +14,18 @@ import User from './User';
 class Message extends BaseEntity {
   @PrimaryGeneratedColumn() id: number;
 
-  @Column({ type: 'text' })
+  @Column({ type: "text" })
   text: string;
 
   @ManyToOne(type => Chat, chat => chat.messages)
   chat: Chat;
 
-  @Column({ nullable: true })
-  userId: number;
-
   @ManyToOne(type => User, user => user.messages)
   user: User;
 
-  @CreateDateColumn() createAt: string;
-  @UpdateDateColumn() updateAt: string;
+  @CreateDateColumn() createdAt: string;
+
+  @UpdateDateColumn() updatedAt: string;
 }
 
 export default Message;
