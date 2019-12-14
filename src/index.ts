@@ -33,7 +33,10 @@ const appOptions : Options = {
   }
 }
 
-const handleAppStat = () => console.log(`Listening on port ${PORT}`)
-createConnection(connectionOptions).then(_ => {
-  app.start(appOptions, handleAppStat);
-}).catch(error => console.error(error));
+const handleAppStart = () => console.log(`Listening on port ${PORT}`);
+
+createConnection(connectionOptions)
+.then(() => {
+  app.start(appOptions, handleAppStart);
+})
+.catch(error => console.error(error));

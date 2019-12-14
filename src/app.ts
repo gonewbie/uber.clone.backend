@@ -20,7 +20,7 @@ class App {
         return {
           req: req.request,
           pubSub: this.pubSub,
-          ...context
+          context
         }
       }
     });
