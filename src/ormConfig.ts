@@ -6,7 +6,7 @@ const {
   DB_NAME,
 } = process.env;
 
-const ConnectionOptions: ConnectionOptions = {
+const connectionOptions: ConnectionOptions = {
   type: 'postgres',
   database: DB_NAME,
   synchronize: true,
@@ -20,4 +20,4 @@ const ConnectionOptions: ConnectionOptions = {
   password: DB_PASSWORD || ''
 };
 
-export default ConnectionOptions;
+export default connectionOptions;
