@@ -2,6 +2,7 @@ type Message {
   id: Int!
   text: String!
   chat: Chat!
+  chatId: Int
   user: User!
   createdAt: String!
   updatedAt: String
