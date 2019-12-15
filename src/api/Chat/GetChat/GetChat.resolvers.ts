@@ -1,8 +1,8 @@
+import Chat from '../../../entities/Chat';
+import User from '../../../entities/User';
 import { GetChatQueryArgs, GetChatResponse } from '../../../types/graph';
 import { Resolvers } from '../../../types/resolvers';
 import privateResolver from '../../../utils/privateResolver';
-import User from '../../../entities/User';
-import Chat from '../../../entities/Chat';
 
 
 const resolvers: Resolvers = {
@@ -15,9 +15,10 @@ const resolvers: Resolvers = {
       ): Promise<GetChatResponse> => {
         const user: User = req.user;
         try {
-          const chat = await Chat.findOne({
-            id: args.chatId
-          });
+          const chat = await Chat.findOne(
+            { id: args.chatId },
+            { relations: ['messages'] }
+          );
           if (chat) {
             if (chat.driverId === user.id || chat.passengerId === user.id) {
               return {

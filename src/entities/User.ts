@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import { IsEmail } from 'class-validator';
 import {
-  BaseEntity, BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn
+  BaseEntity, BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn
 } from 'typeorm';
 import Chat from './Chat';
 import Message from './Message';

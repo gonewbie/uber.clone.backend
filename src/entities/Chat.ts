@@ -5,9 +5,9 @@ import {
   Entity,
   ManyToOne,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
-  OneToOne,
 } from 'typeorm';
 import Message from './Message';
 import Ride from './Ride';
