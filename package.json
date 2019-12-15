@@ -1,7 +1,7 @@
 {
   "name": "giantstar-server",
   "version": "1.0.0",
-  "description": "giantstar backend server",
+  "description": "uber clone backend",
   "main": "src/index.ts",
   "repository": "https://github.com/gonewbie/giantstar.backend.git",
   "author": "gonewbie <gounewbie@gmail.com>",
