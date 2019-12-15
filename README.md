@@ -1,4 +1,4 @@
-# giantstar server
+# uber clone server
 Server for the UBER Clone Course on Nomad Academy. GraphQL, Typescript, NodeJS
 
 ### Public Resolvers:
@@ -26,7 +26,7 @@ Server for the UBER Clone Course on Nomad Academy. GraphQL, Typescript, NodeJS
 - [X] Get Nearby Rides
 - [X] Subscribe to Nearby Ride Requests
 - [X] Subscribe to Ride Status
-- [ ] Get Chat Room Messages
+- [X] Get Chat Room Messages
 - [ ] Subscribe to Chat Room Messages
 - [ ] Send a Chat Message
 
