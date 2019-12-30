@@ -19,7 +19,7 @@ const resolvers: Resolvers = {
         if (place) {
           if (place.userId === user.id) {
             const notNull: any = cleanNullArg(args);
-            // delete notNull.placeId;
+            delete notNull.placeId;
             await Place.update({ id: args.placeId }, { ...notNull });
             return {
               ok: true,
@@ -39,7 +39,7 @@ const resolvers: Resolvers = {
         }
       } catch (error) {
         return {
-          ok: true,
+          ok: false,
           error: error.message
         }
       }
