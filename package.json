@@ -14,7 +14,7 @@
     "types": "graphql-to-typescript ./src/schema.graphql ./src/types/graph.d.ts"
   },
   "dependencies": {
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^5.0.0",
     "class-validator": "^0.11.0",
     "cors": "^2.8.5",
     "dayjs": "^1.8.17",
