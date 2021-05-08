@@ -30,7 +30,7 @@
     "mongoose": "^5.7.7",
     "morgan": "^1.9.1",
     "twilio": "^3.38.0",
-    "typeorm": "^0.2.21"
+    "typeorm": "^0.2.25"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.17",
