@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "bcrypt": "^3.0.7",
-    "class-validator": "^0.11.0",
+    "class-validator": "^0.14.0",
     "cors": "^2.8.5",
     "dayjs": "^1.8.17",
     "dotenv": "^8.2.0",
